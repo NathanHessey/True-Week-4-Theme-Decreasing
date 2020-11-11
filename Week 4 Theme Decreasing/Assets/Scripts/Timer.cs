@@ -1,23 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public static float currentTime = 0f;
-    float startingTime = 10f;
-
+    float currentTime;
+    ok=0;
+    public Text countdownText;
 
     void Start()
-    {
-        currentTime = startingTime;
+    {   
+        
     }
 
 
     void Update()
     {
+        if (ok == 0)
+        {
+            currentTime = 20f;
+            ok = 1;
+        }
         currentTime -= 1 * Time.deltaTime;
         print(currentTime);
         if (currentTime <= 0)
